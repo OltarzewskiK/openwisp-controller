@@ -255,12 +255,13 @@ update strategy field is left blank by the user.
 Installing for development
 --------------------------
 
-Install sqlite:
+Install the dependencies:
 
 .. code-block:: shell
 
-    sudo apt-get install sqlite3 libsqlite3-dev libsqlite3-mod-spatialite openssl libssl-dev
-    sudo apt-get install gdal-bin libproj-dev libgeos-dev libspatialite-dev
+    sudo apt-get install sqlite3 libsqlite3-dev openssl libssl-dev
+    sudo apt-get install gdal-bin libproj-dev libgeos-dev libspatialite-dev libsqlite3-mod-spatialite
+    sudo apt-get install redis
 
 Install your forked repo with `pipenv <https://pipenv.readthedocs.io/en/latest/>`_:
 
@@ -312,7 +313,7 @@ Run the docker container:
 .. code-block:: shell
 
    sudo docker run -it -p 8000:8000 openwisp/controller
-   
+
 Troubleshooting Steps
 ---------------------
 
@@ -325,14 +326,14 @@ If you are getting below exception::
 
    django.core.exceptions.ImproperlyConfigured: Unable to load the SpatiaLite library extension
 
-then, You need to specify ``SPATIALITE_LIBRARY_PATH`` in your ``settings.py`` as explained in 
+then, You need to specify ``SPATIALITE_LIBRARY_PATH`` in your ``settings.py`` as explained in
 `django documentation regarding how to install and configure spatialte
 <https://docs.djangoproject.com/en/2.1/ref/contrib/gis/install/spatialite/>`_.
 
 Having Issues with other geospatial libraries?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Please refer 
+Please refer
 `troubleshooting issues related to geospatial libraries
 <https://docs.djangoproject.com/en/2.1/ref/contrib/gis/install/#library-environment-settings/>`_.
 
